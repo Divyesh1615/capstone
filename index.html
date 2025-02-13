@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>product</title>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        /* Top Banner */
+        .top-banner {
+            background-color: #059669;
+            color: white;
+            padding: 8px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+        }
+
+        .top-banner a {
+            color: white;
+            text-decoration: none;
+            margin-left: 16px;
+        }
+
+        /* Header */
+        header {
+            border-bottom: 1px solid #e5e7eb;
+            padding: 24px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #1f2937;
+            margin-left: 32px;
+        }
+
+        nav a:hover {
+            color: #059669;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        /* Shop Header */
+        .shop-header {
+            padding: 32px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Categories Grid */
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 48px;
+        }
+
+        .category-card {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .category-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .category-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.4);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Products Grid */
+        .products-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            margin-bottom: 48px;
+        }
+
+        .product-card {
+            text-align: center;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 16px;
+        }
+
+        .product-price {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin: 8px 0;
+        }
+
+        .price-original {
+            color: #6b7280;
+        }
+
+        .price-discounted {
+            color: #3b82f6;
+        }
+
+        /* Color dots */
+        .color-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #3b82f6;
+        }
+
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin: 32px 0;
+        }
+
+        .pagination button {
+            padding: 8px 16px;
+            border: 1px solid #e5e7eb;
+            border-radius: 4px;
+            background: white;
+            cursor: pointer;
+        }
+
+        .pagination button.active {
+            background: #3b82f6;
+            color: white;
+        }
+
+        /* Partners */
+        .partners {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 48px 0;
+        }
+
+        .partners img {
+            height: 32px;
+            opacity: 0.7;
+        }
+
+        /* Footer */
+        footer {
+            background: #f9fafb;
+            padding: 48px 0 24px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 32px;
+            margin-bottom: 48px;
+        }
+
+        .footer-column h4 {
+            margin-bottom: 16px;
+        }
+
+        .footer-column a {
+            display: block;
+            color: #6b7280;
+            text-decoration: none;
+            margin-bottom: 8px;
+        }
+
+        .footer-subscribe {
+            display: flex;
+            margin-bottom: 8px;
+        }
+
+        .footer-subscribe input {
+            padding: 8px 16px;
+            border: 1px solid #e5e7eb;
+            border-radius: 4px 0 0 4px;
+            flex: 1;
+        }
+
+        .footer-subscribe button {
+            padding: 8px 16px;
+            background: #3b82f6;
+            color: white;
+            border: none;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 24px;
+            border-top: 1px solid #e5e7eb;
+            color: #6b7280;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .top-banner, nav {
+                display: none;
+            }
+
+            .header-actions {
+                gap: 8px;
+            }
+
+            .categories-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .partners {
+                flex-wrap: wrap;
+                gap: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-banner">
+        <div>
+            <span>(225) 555-0118</span>
+            <span>michelle.rivera@example.com</span>
+        </div>
+        <div>Follow Us and get a chance to win 80% off</div>
+        <div>
+            Follow Us:
+            <a href="#">Instagram</a>
+            <a href="#">Facebook</a>
+            <a href="#">Twitter</a>
+        </div>
+    </div>
+
+    <header>
+        <div class="container header-content">
+            <div class="logo">Bandage</div>
+            <nav>
+                <a href="#">Home</a>
+                <a href="#">Shop</a>
+                <a href="#">About</a>
+                <a href="#">Blog</a>
+                <a href="#">Contact</a>
+                <a href="#">Pages</a>
+            </nav>
+            <div class="header-actions">
+                <button>Login / Register</button>
+                <span>🔍</span>
+                <span>🛒</span>
+                <span>👤</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="shop-header">
+            <h1>Shop</h1>
+            <div>
+                <span>Home</span>
+                <span>/</span>
+                <span>Shop</span>
+            </div>
+        </div>
+
+        <div class="categories-grid">
+            <div class="category-card">
+                <img src="/api/placeholder/400/320" alt="Lighting">
+                <div class="category-overlay">
+                    <h3>Lighting</h3>
+                    <p>5 items</p>
+                </div>
+            </div>
+            <!-- Repeat for other categories -->
+        </div>
+
+        <div class="products-header">
+            <p>Showing all 12 results</p>
+            <div>
+                <select>
+                    <option>Popularity</option>
+                </select>
+                <button>Filter</button>
+            </div>
+        </div>
+
+        <div class="products-grid">
+            <div class="product-card">
+                <img src="/api/placeholder/400/320" alt="Product">
+                <h3>Graphic Design</h3>
+                <p>English Department</p>
+                <div class="product-price">
+                    <span class="price-original">$16.48</span>
+                    <span class="price-discounted">$6.48</span>
+                </div>
+                <div class="color-dots">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+            </div>
+            <!-- Repeat for other products -->
+        </div>
+
+        <div class="pagination">
+            <button>Prev</button>
+            <button class="active">1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>Next</button>
+        </div>
+
+        <div class="partners">
+            <img src="/api/placeholder/100/50" alt="Hooli">
+            <img src="/api/placeholder/100/50" alt="Lyft">
+            <img src="/api/placeholder/100/50" alt="Other">
+            <img src="/api/placeholder/100/50" alt="Stripe">
+            <img src="/api/placeholder/100/50" alt="AWS">
+            <img src="/api/placeholder/100/50" alt="Reddit">
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h4>Company Info</h4>
+                    <a href="#">About Us</a>
+                    <a href="#">Carrier</a>
+                    <a href="#">We are hiring</a>
+                    <a href="#">Blog</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <a href="#">About Us</a>
+                    <a href="#">Carrier</a>
+                    <a href="#">We are hiring</a>
+                    <a href="#">Blog</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Features</h4>
+                    <a href="#">Business Marketing</a>
+                    <a href="#">User Analytic</a>
+                    <a href="#">Live Chat</a>
+                    <a href="#">Unlimited Support</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Resources</h4>
+                    <a href="#">IOS & Android</a>
+                    <a href="#">Watch a Demo</a>
+                    <a href="#">Customers</a>
+                    <a href="#">API</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Get In Touch</h4>
+                    <div class="footer-subscribe">
+                        <input type="email" placeholder="Your Email">
+                        <button>Subscribe</button>
+                    </div>
+                    <p>Lore imp sum dolor Amit</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Made With Love By Finland All Right Reserved</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

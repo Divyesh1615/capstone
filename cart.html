@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - Home Automation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            color: #252B42;
+            line-height: 1.6;
+        }
+
+        /* Header Styles */
+        header {
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #E8E8E8;
+        }
+
+        .logo {
+            font-weight: bold;
+            font-size: 24px;
+            color: #252B42;
+            text-decoration: none;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #737373;
+        }
+
+        .header-icons {
+            display: flex;
+            gap: 20px;
+        }
+
+        /* Main Content */
+        main {
+            display: flex;
+            padding: 50px;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .cart-section {
+            flex: 2;
+        }
+
+        .payment-section {
+            flex: 1;
+            background: #F9F9F9;
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        /* Shopping Cart Styles */
+        .cart-title {
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+
+        .cart-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .cart-table th {
+            text-align: left;
+            padding: 15px 0;
+            border-bottom: 1px solid #E8E8E8;
+        }
+
+        .cart-table td {
+            padding: 15px 0;
+            border-bottom: 1px solid #E8E8E8;
+        }
+
+        .product-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .product-image {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+        }
+
+        .product-details {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-name {
+            font-weight: bold;
+        }
+
+        .product-department {
+            color: #737373;
+        }
+
+        .price {
+            color: #23A6F0;
+        }
+
+        .original-price {
+            color: #737373;
+            text-decoration: line-through;
+        }
+
+        /* Payment Section Styles */
+        .payment-title {
+            font-size: 20px;
+            margin-bottom: 25px;
+        }
+
+        .payment-method {
+            margin-bottom: 25px;
+        }
+
+        .payment-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #737373;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #E8E8E8;
+            border-radius: 5px;
+        }
+
+        .expiry-cvv {
+            display: flex;
+            gap: 20px;
+        }
+
+        .checkout-button {
+            width: 100%;
+            padding: 15px;
+            background: #23A6F0;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Footer Styles */
+        footer {
+            background: #FAFAFA;
+            padding: 50px;
+            margin-top: 50px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 30px;
+        }
+
+        .footer-column h3 {
+            margin-bottom: 20px;
+        }
+
+        .footer-column a {
+            display: block;
+            color: #737373;
+            text-decoration: none;
+            margin-bottom: 10px;
+        }
+
+        .subscribe-form {
+            display: flex;
+            gap: 10px;
+        }
+
+        .subscribe-form input {
+            padding: 10px;
+            border: 1px solid #E8E8E8;
+            border-radius: 5px;
+        }
+
+        .subscribe-button {
+            padding: 10px 20px;
+            background: #23A6F0;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 25px;
+            margin-top: 25px;
+            border-top: 1px solid #E8E8E8;
+            color: #737373;
+        }
+
+        @media (max-width: 768px) {
+            main {
+                flex-direction: column;
+                padding: 20px;
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            header {
+                padding: 20px;
+            }
+
+            nav {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="#" class="logo">Home Automation</a>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Product</a>
+            <a href="#">Pricing</a>
+            <a href="#">Contact</a>
+        </nav>
+        <div class="header-icons">
+            <span>🔍</span>
+            <span>🛒</span>
+        </div>
+    </header>
+
+    <main>
+        <section class="cart-section">
+            <h1 class="cart-title">Shopping Cart</h1>
+            <table class="cart-table">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Size</th>
+                        <th>Quantity</th>
+                        <th>Total Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="product-info">
+                                <img src="/api/placeholder/80/80" alt="Product" class="product-image">
+                                <div class="product-details">
+                                    <span class="product-name">Graphic Design</span>
+                                    <span class="product-department">English Department</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td>M</td>
+                        <td>2</td>
+                        <td>
+                            <div class="price">$6.48</div>
+                            <div class="original-price">$16.48</div>
+                        </td>
+                    </tr>
+                    <!-- Repeat for other products -->
+                </tbody>
+            </table>
+
+            <div style="text-align: right; margin-top: 20px;">
+                <p>Sub Total: $6.48</p>
+                <p>Tax: Free</p>
+                <p>Total: $6.48</p>
+            </div>
+
+            <a href="#" style="display: inline-block; margin-top: 20px; color: #23A6F0; text-decoration: none;">
+                Continue Shopping
+            </a>
+        </section>
+
+        <section class="payment-section">
+            <h2 class="payment-title">Payment Information</h2>
+            <div class="payment-method">
+                <div class="payment-option">
+                    <input type="radio" name="payment" id="card" checked>
+                    <label for="card">Credit/Debit/Visa/Master Card</label>
+                </div>
+                <div class="payment-option">
+                    <input type="radio" name="payment" id="paypal">
+                    <label for="paypal">Pay Pal</label>
+                </div>
+            </div>
+
+            <form>
+                <div class="form-group">
+                    <label>Name On Card:</label>
+                    <input type="text" value="John Jhonny">
+                </div>
+
+                <div class="form-group">
+                    <label>Card Number:</label>
+                    <input type="text" value="**** **** **** 9731">
+                </div>
+
+                <div class="expiry-cvv">
+                    <div class="form-group">
+                        <label>Expiration Date:</label>
+                        <input type="text" value="05/2025">
+                    </div>
+                    <div class="form-group">
+                        <label>CVV:</label>
+                        <input type="text" value="367">
+                    </div>
+                </div>
+
+                <button class="checkout-button">Check Out</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Company Info</h3>
+                <a href="#">About Us</a>
+                <a href="#">Carrier</a>
+                <a href="#">We are hiring</a>
+                <a href="#">Blog</a>
+            </div>
+            <div class="footer-column">
+                <h3>Legal</h3>
+                <a href="#">About Us</a>
+                <a href="#">Carrier</a>
+                <a href="#">We are hiring</a>
+                <a href="#">Blog</a>
+            </div>
+            <div class="footer-column">
+                <h3>Features</h3>
+                <a href="#">Business Marketing</a>
+                <a href="#">User Analytic</a>
+                <a href="#">Live Chat</a>
+                <a href="#">Unlimited Support</a>
+            </div>
+            <div class="footer-column">
+                <h3>Resources</h3>
+                <a href="#">IOS & Android</a>
+                <a href="#">Watch a Demo</a>
+                <a href="#">Customers</a>
+                <a href="#">API</a>
+            </div>
+            <div class="footer-column">
+                <h3>Get In Touch</h3>
+                <div class="subscribe-form">
+                    <input type="email" placeholder="Your Email">
+                    <button class="subscribe-button">Subscribe</button>
+                </div>
+                <p>Lore imp sum dolor Amit</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            Made With Love By Waterloo All Right Reserved
+        </div>
+    </footer>
+</body>
+</html>
