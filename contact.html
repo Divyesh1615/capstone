@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -60,3 +61,202 @@
 
 </body>
 </html>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        .contact-container {
+            min-height: 100vh;
+            display: flex;
+            background: linear-gradient(135deg, #004d4d 0%, #00bfbf 100%);
+            color: white;
+            padding: 50px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-left {
+            width: 50%;
+            padding: 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .contact-right {
+            width: 50%;
+            display: flex;
+            flex-wrap: wrap;
+            padding: 50px;
+            gap: 30px;
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+
+        .description {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            max-width: 500px;
+        }
+
+        .contact-button {
+            background-color: #35a5f5;
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: fit-content;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .contact-button:hover {
+            background-color: #2196f3;
+        }
+
+        .location-card {
+            width: calc(50% - 15px);
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+        }
+
+        .location-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .location-address {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .location-zip {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .location-contact {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .contact-info {
+            margin-top: 20px;
+        }
+
+        .divider {
+            width: 50px;
+            height: 3px;
+            background-color: #35a5f5;
+            margin: 10px 0 20px 0;
+        }
+
+        @media (max-width: 1024px) {
+            .contact-container {
+                flex-direction: column;
+            }
+
+            .contact-left, .contact-right {
+                width: 100%;
+                padding: 40px 20px;
+            }
+
+            .location-card {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 36px;
+            }
+
+            .description {
+                font-size: 16px;
+            }
+
+            .location-title {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="contact-container">
+        <div class="contact-left">
+            <h1>CONTACT US</h1>
+            <p class="description">Problems trying to resolve the conflict between the two major realms of Classical physics: Newtonian mechanics</p>
+            <a href="#" class="contact-button">CONTACT US</a>
+        </div>
+        
+        <div class="contact-right">
+            <div class="location-card">
+                <h2 class="location-title">Paris</h2>
+                <div class="divider"></div>
+                <p class="location-address">1901 Thorn ridge Cir.</p>
+                <p class="location-zip">75000 Paris</p>
+                <div class="contact-info">
+                    <p class="location-contact">Phone : +451 215 215</p>
+                    <p class="location-contact">Fax : +451 215 215</p>
+                </div>
+            </div>
+
+            <div class="location-card">
+                <h2 class="location-title">New York</h2>
+                <div class="divider"></div>
+                <p class="location-address">2715 Ash Dr. San Jose,</p>
+                <p class="location-zip">75000 Paris</p>
+                <div class="contact-info">
+                    <p class="location-contact">Phone : +451 215 215</p>
+                    <p class="location-contact">Fax : +451 215 215</p>
+                </div>
+            </div>
+
+            <div class="location-card">
+                <h2 class="location-title">Berlin</h2>
+                <div class="divider"></div>
+                <p class="location-address">4140 Parker Rd.</p>
+                <p class="location-zip">75000 Paris</p>
+                <div class="contact-info">
+                    <p class="location-contact">Phone : +451 215 215</p>
+                    <p class="location-contact">Fax : +451 215 215</p>
+                </div>
+            </div>
+
+            <div class="location-card">
+                <h2 class="location-title">London</h2>
+                <div class="divider"></div>
+                <p class="location-address">3517 W. Gray St. Utica,</p>
+                <p class="location-zip">75000 Paris</p>
+                <div class="contact-info">
+                    <p class="location-contact">Phone : +451 215 215</p>
+                    <p class="location-contact">Fax : +451 215 215</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+>>>>>>> ba1f425e816603ace7297b7b290a4340a2148401
